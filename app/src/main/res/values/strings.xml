@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">"LostPets"</string>
+    <string name="title_activity_infos">"Infos"</string>
+    <string name="title_activity_take_picture">TakePictureActivity</string>
+    <string name="title_activity_create_lost_pet">CreateLostPetActivity</string>
+    <string name="action_settings">"Settings"</string>
+    <string name="lostMyPet">"J'ai perdu mon animal"</string>
+    <string name="findPet">"J'ai trouvé un animal"</string>
+    <string name="lostPetsAroundMe">"Perdus près d'ici..."</string>
+    <string name="infos">"Infos"</string>
+    <string name="tipsTitle">"Informations"</string>
+    <string name="whoToContact">"Qui contacter en cas de perte/découverte d'un animal ?"</string>
+    <string name="tipsContent">"Des vétérinaires de quartier\nLa SPA (Tél: 01.43.80.40.66)\nLa Mairie\nLe Facteur\nLes commercants\nLa Société Canine ou Féline (Tél: 01.49.37.54.54)\n"</string>
+    <string name="lostPetsTitle">"Animaux perdus"</string>
+    <string name="race">"Race : "</string>
+    <string name="colour">"Couleur : "</string>
+    <string name="sex">"Sexe : "</string>
+    <string name="tatoo">"Tatouage : "</string>
+    <string name="description">"Description : "</string>
+    <string name="lostPoint">"Perdu à l'adresse"</string>
+    <string name="address">"Adresse : "</string>
+    <string name="zipCode">"Code Postal : "</string>
+    <string name="city">"Ville : "</string>
+    <string name="phoneNumber">"Tél : "</string>
+    <string name="takePicture">"Prendre une photo de l'animal"</string>
+    <string name="shareLostPet">"Vous pouvez maintenant :\n- Envoyer cette photo à son propriétaire\n- La partager avec vos contacts"</string>
+    <string name="sharePicture">"Partager"</string>
+    <string name="myDetails">"Mes coordonnées"</string>
+    <string name="myPet">"Mon Animal"</string>
+    <string name="lastName">"Nom * : "</string>
+    <string name="firstName">"Prénom * : "</string>
+    <string name="picture">"Photo (URL) : "</string>
+    <string name="sexLostPet">"Sexe (M/F) * : "</string>
+    <string name="addressLostPet">"Adresse * : "</string>
+    <string name="zipCodeLostPet">"Code Postal * : "</string>
+    <string name="cityLostPet">"Ville * : "</string>
+    <string name="raceLostPet">"Race * : "</string>
+    <string name="colourLostPet">"Couleur * : "</string>
+    <string name="phoneLostPet">"Tél. * : "</string>
+    <string name="save">"Sauvegarder"</string>
+    <string name="msg_contactWebApi">"Veuillez patienter, cela peut prendre quelques minutes ..."</string>
+    <string name="msg_saveLostPet">"Sauvegarde terminée\nCette fiche sera supprimée au bout de 30 jours"</string>
+    <string name="err_contactWebApi">"Le serveur est inaccessible : Pensez à activer Internet"</string>
+    <string name="err_dataWebApi">"Les données récupérées ne sont pas conformes"</string>
+    <string name="err_pictureFile">"L'image n'a pas pu être enregistrée"</string>
+    <string name="err_lostPetWrongField">"Un ou plusieurs champs obligatoires ne sont pas conformes"</string>
+    <string name="err_lostPetOpenBDD">"Problème de connexion à la base de donnée"</string>
+
+
+</resources>

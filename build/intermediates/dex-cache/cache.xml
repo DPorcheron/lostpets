@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="/Users/david/AndroidStudioProjects/LostPets/app/build/intermediates/pre-dexed/debug/support-annotations-20.0.0-bca9cd8c8082330ef7549e0398af852faae531fd.jar"
+        jar="/Applications/Android Studio.app/sdk/extras/android/m2repository/com/android/support/support-annotations/20.0.0/support-annotations-20.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="9d9013e9ff35fc3756411e62873c363c70c638fa"/>
+    <item
+        dex="/Users/david/AndroidStudioProjects/LostPets/app/build/intermediates/pre-dexed/debug/android-async-http-1.4.4-21240cb9c16238390af3f991b06ecbd34cd1f9cd.jar"
+        jar="/Users/david/.gradle/caches/modules-2/files-2.1/com.loopj.android/android-async-http/1.4.4/3bae85a076241828810bf8fbcc12e5891d5fc34c/android-async-http-1.4.4.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="3bae85a076241828810bf8fbcc12e5891d5fc34c"/>
+    <item
+        dex="/Users/david/AndroidStudioProjects/LostPets/app/build/intermediates/pre-dexed/debug/picasso-2.3.4-74163937bdf1a00630ef18e961c3b1bd0a17c620.jar"
+        jar="/Users/david/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.3.4/3b646ddbdac8a33fc45b64564011da81d23e4635/picasso-2.3.4.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="3b646ddbdac8a33fc45b64564011da81d23e4635"/>
+    <item
+        dex="/Users/david/AndroidStudioProjects/LostPets/app/build/intermediates/pre-dexed/debug/internal_impl-20.0.0-7b7196c01d6598bd74496c96799782afc5f19267.jar"
+        jar="/Users/david/AndroidStudioProjects/LostPets/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/libs/internal_impl-20.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d"/>
+    <item
+        dex="/Users/david/AndroidStudioProjects/LostPets/app/build/intermediates/pre-dexed/debug/classes-5a4c1017b4976f34229a453be45e580ff096b60e.jar"
+        jar="/Users/david/AndroidStudioProjects/LostPets/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="8694693636ab36910c8100ce527c258ff3ebece0"/>
+
+</pre-dex-items>
