@@ -29,7 +29,25 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/row_img_pet"
+                android:id="@+id/txt_sharePicture"
                 android:text="@string/shareLostPet"
+                android:layout_marginBottom="50dp"
+                android:layout_centerHorizontal="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_sharePicture"
+                android:id="@+id/txt_phone"
+                android:text="@string/ownerPhoneNumber"
+                android:layout_centerHorizontal="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_ownerPhone"
+                android:layout_marginBottom="30dp"
+                android:layout_below="@+id/txt_phone"
+                android:textIsSelectable="true"
                 android:layout_centerHorizontal="true"/>
 
             <Button
@@ -38,7 +56,7 @@
                 android:text="@string/sharePicture"
                 android:id="@+id/btn_sharePicture"
                 style="@style/text_button"
-                android:layout_alignParentBottom="true"
+                android:layout_below="@+id/txt_ownerPhone"
                 android:layout_centerHorizontal="true"/>
         </RelativeLayout>
     </ScrollView>

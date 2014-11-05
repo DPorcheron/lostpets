@@ -9,6 +9,7 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
@@ -18,6 +19,7 @@ import fr.esiea.mobile.lostpets.util.PictureFileManager;
 
 public class TakePictureActivity extends Activity implements View.OnClickListener {
 
+    TextView m_txtOwnerPhone;
     ImageView m_imgLostPetPicture;
     Button m_btnSharePicture;
     Bitmap m_imageBitmap;
@@ -29,10 +31,15 @@ public class TakePictureActivity extends Activity implements View.OnClickListene
 
         m_btnSharePicture = (Button) findViewById(R.id.btn_sharePicture);
         m_imgLostPetPicture = (ImageView) findViewById(R.id.row_img_pet);
+        m_txtOwnerPhone = (TextView) findViewById(R.id.txt_ownerPhone);
 
         m_btnSharePicture.setOnClickListener(this);
 
         setImgView();
+
+        if (getIntent().getExtras().get("phone") != null) {
+            m_txtOwnerPhone.setText((String) getIntent().getExtras().get("phone"));
+        }
     }
 
     private void setImgView() {
@@ -55,9 +62,6 @@ public class TakePictureActivity extends Activity implements View.OnClickListene
     public void onClick(View view) {
         if (R.id.btn_sharePicture == view.getId()) {
             final Intent shareIntent = new Intent(Intent.ACTION_SEND);
-            if (getIntent().getExtras().get("phone") != null) {
-                shareIntent.putExtra(Intent.EXTRA_PHONE_NUMBER, (String) getIntent().getExtras().get("phone"));
-            }
             shareIntent.setType("image/jpeg");
             shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(PictureFileManager.getM_currentPhotoPath())));

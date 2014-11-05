@@ -34,74 +34,69 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/edit_myLastName"
-                android:layout_alignBottom="@+id/txt_myLastName"
-                android:layout_toRightOf="@+id/txt_myLastName"/>
+                android:layout_below="@+id/txt_myLastName"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
                 android:id="@+id/txt_myFirstName"
                 style="@style/text_details"
                 android:text="@string/firstName"
-                android:layout_below="@+id/txt_myLastName"/>
+                android:layout_below="@+id/edit_myLastName"/>
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/edit_myFirstName"
-                android:layout_alignBottom="@+id/txt_myFirstName"
-                android:layout_toRightOf="@+id/txt_myFirstName"/>
+                android:layout_below="@+id/txt_myFirstName"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/txt_myAddress"
                 style="@style/text_details"
                 android:text="@string/addressLostPet"
-                android:layout_below="@+id/txt_myFirstName"/>
+                android:layout_marginBottom="20dp"
+                android:layout_below="@+id/edit_myFirstName"/>
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/edit_myAddress"
-                android:layout_alignBottom="@+id/txt_myAddress"
-                android:layout_toRightOf="@+id/txt_myAddress"/>
+                android:layout_below="@+id/txt_myAddress"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/txt_myZipCode"
                 style="@style/text_details"
                 android:text="@string/zipCodeLostPet"
-                android:layout_below="@+id/txt_myAddress"/>
+                android:layout_below="@+id/edit_myAddress"/>
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/edit_myZipCode"
-                android:layout_alignBottom="@+id/txt_myZipCode"
-                android:layout_toRightOf="@+id/txt_myZipCode"/>
+                android:layout_below="@+id/txt_myZipCode"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/txt_myCity"
                 style="@style/text_details"
                 android:text="@string/cityLostPet"
-                android:layout_below="@+id/txt_myZipCode"/>
+                android:layout_below="@+id/edit_myZipCode"/>
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/edit_myCity"
-                android:layout_alignBottom="@+id/txt_myCity"
-                android:layout_toRightOf="@+id/txt_myCity"/>
+                android:layout_below="@+id/txt_myCity"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/txt_myPhone"
                 style="@style/text_details"
                 android:text="@string/phoneLostPet"
-                android:layout_below="@+id/txt_myCity"/>
+                android:layout_below="@+id/edit_myCity"/>
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:inputType="phone"
                 android:id="@+id/edit_myPhone"
-                android:layout_alignBottom="@+id/txt_myPhone"
-                android:layout_toRightOf="@+id/txt_myPhone"/>
+                android:layout_below="@+id/txt_myPhone"/>
 
 
             <TextView
@@ -124,86 +119,67 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/edit_petName"
-                android:layout_alignBottom="@+id/txt_petName"
-                android:layout_toRightOf="@+id/txt_petName"/>
+                android:layout_below="@+id/txt_petName"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/txt_petRace"
                 style="@style/text_details"
                 android:text="@string/raceLostPet"
-                android:layout_below="@+id/txt_petName"/>
+                android:layout_below="@+id/edit_petName"/>
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/edit_petRace"
-                android:layout_alignBottom="@+id/txt_petRace"
-                android:layout_toRightOf="@+id/txt_petRace"/>
+                android:layout_below="@+id/txt_petRace"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/txt_petColour"
                 style="@style/text_details"
                 android:text="@string/colourLostPet"
-                android:layout_below="@+id/txt_petRace"/>
+                android:layout_below="@+id/edit_petRace"/>
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/edit_petColour"
-                android:layout_alignBottom="@+id/txt_petColour"
-                android:layout_toRightOf="@+id/txt_petColour"/>
+                android:layout_below="@+id/txt_petColour"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/txt_petSex"
                 style="@style/text_details"
                 android:text="@string/sexLostPet"
-                android:layout_below="@+id/txt_petColour"/>
+                android:layout_below="@+id/edit_petColour"/>
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/edit_petSex"
-                android:layout_alignBottom="@+id/txt_petSex"
-                android:layout_toRightOf="@+id/txt_petSex"/>
+                android:layout_below="@+id/txt_petSex"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/txt_petTatoo"
                 style="@style/text_details"
                 android:text="@string/tatoo"
-                android:layout_below="@+id/txt_petSex"/>
+                android:layout_below="@+id/edit_petSex"/>
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/edit_petTatoo"
-                android:layout_alignBottom="@+id/txt_petTatoo"
-                android:layout_toRightOf="@+id/txt_petTatoo"/>
+                android:layout_below="@+id/txt_petTatoo"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/txt_petPicture"
                 style="@style/text_details"
                 android:text="@string/picture"
-                android:layout_below="@+id/txt_petTatoo"/>
+                android:layout_below="@+id/edit_petTatoo"/>
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/edit_petPicture"
-                android:layout_alignBottom="@+id/txt_petPicture"
-                android:layout_toRightOf="@+id/txt_petPicture"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/txt_petDescription"
-                style="@style/text_details"
-                android:text="@string/description"
                 android:layout_below="@+id/txt_petPicture"/>
-            <EditText
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/edit_petDescription"
-                android:layout_alignBottom="@+id/txt_petDescription"
-                android:layout_toRightOf="@+id/txt_petDescription"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -211,52 +187,51 @@
                 style="@style/text_details"
                 android:id="@+id/txt_petLostPoint"
                 android:text="@string/lostPoint"
-                android:layout_below="@+id/txt_petDescription"/>
+                android:layout_below="@+id/edit_petPicture"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/txt_petAddress"
                 style="@style/text_details"
                 android:text="@string/addressLostPet"
+                android:layout_marginBottom="20dp"
                 android:layout_below="@+id/txt_petLostPoint"/>
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/edit_petAddress"
-                android:layout_alignBottom="@+id/txt_petAddress"
-                android:layout_toRightOf="@+id/txt_petAddress"/>
+                android:layout_below="@+id/txt_petAddress"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/txt_petZipCode"
                 style="@style/text_details"
                 android:text="@string/zipCodeLostPet"
-                android:layout_below="@+id/txt_petAddress"/>
+                android:layout_below="@+id/edit_petAddress"/>
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/edit_petZipCode"
-                android:layout_alignBottom="@+id/txt_petZipCode"
-                android:layout_toRightOf="@+id/txt_petZipCode"/>
+                android:layout_below="@+id/txt_petZipCode"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/txt_petCity"
                 style="@style/text_details"
                 android:text="@string/cityLostPet"
-                android:layout_below="@+id/txt_petZipCode"/>
+                android:layout_below="@+id/edit_petZipCode"/>
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/edit_petCity"
-                android:layout_alignBottom="@+id/txt_petCity"
-                android:layout_toRightOf="@+id/txt_petCity"/>
+                android:layout_below="@+id/txt_petCity"/>
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                style="@style/text_button"
                 android:id="@+id/btn_saveLostPet"
-                android:layout_below="@+id/txt_petCity"
+                android:layout_below="@+id/edit_petCity"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:text="@string/save"/>

@@ -13,7 +13,6 @@ public class Pet {
     private String m_petColour;
     private String m_petSex;
     private String m_petTatoo;
-    private String m_petDescription;
     private String m_petPicture;
     private String m_petLostAddress;
     private String m_petLostZipcode;
@@ -26,7 +25,7 @@ public class Pet {
     private String m_petOwnerPhone;
 
     public Pet(Integer m_petId, String m_petName, String m_petRace, String m_petColour,
-               String m_petSex, String m_petTatoo, String m_petDescription, String m_petPicture,
+               String m_petSex, String m_petTatoo, String m_petPicture,
                String m_petLostAddress, String m_petLostZipcode, String m_petLostCity,
                String m_petOwnerFirstName, String m_petOwnerLastName, String m_petOwnerAddress,
                String m_petOwnerZipCode, String m_petOwnerCity, String m_petOwnerPhone) {
@@ -36,7 +35,6 @@ public class Pet {
         this.m_petColour = m_petColour;
         this.m_petSex = m_petSex;
         this.m_petTatoo = m_petTatoo;
-        this.m_petDescription = m_petDescription;
         this.m_petPicture = m_petPicture;
         this.m_petLostAddress = m_petLostAddress;
         this.m_petLostZipcode = m_petLostZipcode;
@@ -68,20 +66,35 @@ public class Pet {
         if (json.has("tatoo")){
             this.m_petTatoo = json.optString("tatoo");
         }
-        if (json.has("description")){
-            this.m_petDescription = json.optString("description");
-        }
         if (json.has("picture")){
             this.m_petPicture = json.optString("picture");
         }
-        if (json.has("lostAddress")){
-            this.m_petLostAddress = json.optString("lostAddress");
+        if (json.has("address")){
+            this.m_petLostAddress = json.optString("address");
         }
-        if (json.has("lostZipcode")){
-            this.m_petLostZipcode = json.optString("lostZipcode");
+        if (json.has("zipcode")){
+            this.m_petLostZipcode = json.optString("zipcode");
         }
-        if (json.has("lostCity")){
-            this.m_petLostCity = json.optString("lostCity");
+        if (json.has("city")){
+            this.m_petLostCity = json.optString("city");
+        }
+        if (json.has("ownerFirstName")){
+            this.m_petOwnerFirstName = json.optString("ownerFirstName");
+        }
+        if (json.has("ownerLastName")){
+            this.m_petOwnerLastName = json.optString("ownerLastName");
+        }
+        if (json.has("ownerAddress")){
+            this.m_petOwnerAddress = json.optString("ownerAddress");
+        }
+        if (json.has("ownerZipcode")){
+            this.m_petOwnerZipCode = json.optString("ownerZipcode");
+        }
+        if (json.has("ownerCity")){
+            this.m_petOwnerCity = json.optString("ownerCity");
+        }
+        if (json.has("ownerPhone")){
+            this.m_petOwnerPhone = json.optString("ownerPhone");
         }
     }
 
@@ -94,7 +107,6 @@ public class Pet {
                 ", m_petColour='" + m_petColour + '\'' +
                 ", m_petSex='" + m_petSex + '\'' +
                 ", m_petTatoo='" + m_petTatoo + '\'' +
-                ", m_petDescription='" + m_petDescription + '\'' +
                 ", m_petPicture='" + m_petPicture + '\'' +
                 ", m_petLostAddress='" + m_petLostAddress + '\'' +
                 ", m_petLostZipcode='" + m_petLostZipcode + '\'' +
@@ -154,14 +166,6 @@ public class Pet {
 
     public void setM_petTatoo(String m_petTatoo) {
         this.m_petTatoo = m_petTatoo;
-    }
-
-    public String getM_petDescription() {
-        return m_petDescription;
-    }
-
-    public void setM_petDescription(String m_petDescription) {
-        this.m_petDescription = m_petDescription;
     }
 
     public String getM_petPicture() {

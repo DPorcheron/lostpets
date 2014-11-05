@@ -15,6 +15,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.picasso.Picasso;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -50,7 +52,6 @@ public class PetFragment extends Fragment implements View.OnClickListener {
     private TextView m_lblPetColour;
     private TextView m_lblPetSex;
     private TextView m_lblPetTatoo;
-    private TextView m_lblPetDescription;
     private TextView m_lblLostAddress;
     private TextView m_lblLostZipCode;
     private TextView m_lblLostCity;
@@ -108,7 +109,6 @@ public class PetFragment extends Fragment implements View.OnClickListener {
         m_lblPetColour = (TextView)rootView.findViewById(R.id.row_lbl_petColour);
         m_lblPetSex = (TextView)rootView.findViewById(R.id.row_lbl_petSex);
         m_lblPetTatoo = (TextView)rootView.findViewById(R.id.row_lbl_petTatoo);
-        m_lblPetDescription = (TextView)rootView.findViewById(R.id.row_lbl_petDescription);
         m_lblLostAddress = (TextView)rootView.findViewById(R.id.row_lbl_lostAddress);
         m_lblLostZipCode = (TextView)rootView.findViewById(R.id.row_lbl_lostZipCode);
         m_lblLostCity = (TextView)rootView.findViewById(R.id.row_lbl_lostCity);
@@ -156,14 +156,22 @@ public class PetFragment extends Fragment implements View.OnClickListener {
         if (m_pet != null) {
             m_layoutMain.setVisibility(View.VISIBLE);
 
-            m_imgPet.setImageResource(R.drawable.no_available_image);
+            if (m_pet.getM_petPicture() != null){
+                Picasso.with(this.getActivity())
+                        .load(m_pet.getM_petPicture())
+                        .placeholder(R.drawable.no_available_image)
+                        .error(R.drawable.no_available_image)
+                        .into(m_imgPet);
+            }
+            else {
+                m_imgPet.setImageResource(R.drawable.no_available_image);
+            }
 
             m_lblPetName.setText(m_pet.getM_petName());
             m_lblPetRace.setText(m_pet.getM_petRace());
             m_lblPetColour.setText(m_pet.getM_petColour());
             m_lblPetSex.setText(m_pet.getM_petSex());
             m_lblPetTatoo.setText(m_pet.getM_petTatoo());
-            m_lblPetDescription.setText(m_pet.getM_petDescription());
             m_lblLostAddress.setText(m_pet.getM_petLostAddress());
             m_lblLostZipCode.setText(m_pet.getM_petLostZipcode());
             m_lblLostCity.setText(m_pet.getM_petLostCity());

@@ -8,6 +8,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import fr.esiea.mobile.lostpets.R;
 import fr.esiea.mobile.lostpets.model.Pet;
 import fr.esiea.mobile.lostpets.model.Pets;
@@ -61,7 +63,6 @@ public class PetAdapter extends BaseAdapter {
 
             if (v.findViewById(R.id.layout_petInfos) != null) {
                 holder.petTatooView = (TextView) v.findViewById(R.id.row_lbl_petTatoo);
-                holder.petDescriptionView = (TextView) v.findViewById(R.id.row_lbl_petDescription);
                 holder.lostAddressView = (TextView) v.findViewById(R.id.row_lbl_lostAddress);
                 holder.lostZipCodeView = (TextView) v.findViewById(R.id.row_lbl_lostZipCode);
                 holder.lostCityView = (TextView) v.findViewById(R.id.row_lbl_lostCity);
@@ -92,10 +93,9 @@ public class PetAdapter extends BaseAdapter {
 
         if (v.findViewById(R.id.layout_petInfos) != null) {
             holder.petTatooView.setText(pet.getM_petTatoo());
-            holder.petDescriptionView.setText(pet.getM_petDescription());
-            holder.lostAddressView.setText(pet.getM_petDescription());
-            holder.lostZipCodeView.setText(pet.getM_petDescription());
-            holder.lostCityView.setText(pet.getM_petDescription());
+            holder.lostAddressView.setText(pet.getM_petLostAddress());
+            holder.lostZipCodeView.setText(pet.getM_petLostZipcode());
+            holder.lostCityView.setText(pet.getM_petLostCity());
         }
 
         if (v.findViewById(R.id.layout_ownerInfos) != null) {
@@ -107,24 +107,23 @@ public class PetAdapter extends BaseAdapter {
             holder.userPhone.setText(pet.getM_petOwnerPhone());
         }
 
-        /*if (pet.getCoverUrl() != null){
-            Picasso.with(context)                       // initialisation
-                    .load(pet.getCoverUrl())           // ce qu'on veut charger
-                    .placeholder(R.drawable.no_available_image)   // ce que l'on affiche pendant le chargement
-                    .error(R.drawable.no_available_image)         // ce que l'on affiche en cas d'erreur
-                    .into(holder.petPictureView)            // destination de ce qu'on veut afficher
-            ;
+        if (pet.getM_petPicture() != null){
+            Picasso.with(context)
+                    .load(pet.getM_petPicture())
+                    .placeholder(R.drawable.no_available_image)
+                    .error(R.drawable.no_available_image)
+                    .into(holder.petPictureView);
         }
         else {
             holder.petPictureView.setImageResource(R.drawable.no_available_image);
-        }*/
+        }
 
         return v;
     }
 
     static class RowView {
         TextView petNameView, petRaceView, petColourView, petSexView, petTatooView,
-                petDescriptionView, lostAddressView, lostZipCodeView, lostCityView,
+                lostAddressView, lostZipCodeView, lostCityView,
                 userFirstName, userLastName, userAddress, userZipCode, userCity, userPhone;
         ImageView petPictureView;
     }

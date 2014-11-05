@@ -34,7 +34,6 @@ public class CreateLostPetActivity extends Activity implements View.OnClickListe
     private EditText m_editPetSex;
     private EditText m_editPetTatoo;
     private EditText m_editPetPicture;
-    private EditText m_editPetDescription;
     private EditText m_editPetAddress;
     private EditText m_editPetZipCode;
     private EditText m_editPetCity;
@@ -62,7 +61,6 @@ public class CreateLostPetActivity extends Activity implements View.OnClickListe
         m_editPetColour = (EditText) findViewById(R.id.edit_petColour);
         m_editPetTatoo = (EditText) findViewById(R.id.edit_petTatoo);
         m_editPetPicture = (EditText) findViewById(R.id.edit_petPicture);
-        m_editPetDescription = (EditText) findViewById(R.id.edit_petDescription);
         m_editPetAddress = (EditText) findViewById(R.id.edit_petAddress);
         m_editPetZipCode = (EditText) findViewById(R.id.edit_petZipCode);
         m_editPetCity = (EditText) findViewById(R.id.edit_petCity);
@@ -91,7 +89,7 @@ public class CreateLostPetActivity extends Activity implements View.OnClickListe
             setStandardTextColour();
             Pet pet = new Pet(0, m_editPetName.getText().toString(), m_editPetRace.getText().toString(),
                     m_editPetColour.getText().toString(), m_editPetSex.getText().toString(),
-                    m_editPetTatoo.getText().toString(), m_editPetDescription.getText().toString(),
+                    m_editPetTatoo.getText().toString(),
                     m_editPetPicture.getText().toString(), m_editPetAddress.getText().toString(),
                     m_editPetZipCode.getText().toString(), m_editPetCity.getText().toString(),
                     m_editUserFirstName.getText().toString(), m_editUserLastName.getText().toString(),
@@ -174,7 +172,7 @@ public class CreateLostPetActivity extends Activity implements View.OnClickListe
             m_editUserCity.setTextColor(Color.RED);
             noError = false;
         }
-        if (!pet.getM_petOwnerPhone().matches(numberRegex) || pet.getM_petOwnerCity().equals("")) {
+        if (pet.getM_petOwnerCity().equals("")) {
             m_editUserPhone.setTextColor(Color.RED);
             noError = false;
         }
@@ -223,7 +221,6 @@ public class CreateLostPetActivity extends Activity implements View.OnClickListe
         m_editPetSex.setTextColor(Color.BLACK);
         m_editPetTatoo.setTextColor(Color.BLACK);
         m_editPetPicture.setTextColor(Color.BLACK);
-        m_editPetDescription.setTextColor(Color.BLACK);
         m_editPetAddress.setTextColor(Color.BLACK);
         m_editPetZipCode.setTextColor(Color.BLACK);
         m_editPetCity.setTextColor(Color.BLACK);

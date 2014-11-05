@@ -45,6 +45,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/row_lbl_petName"
                         android:text="PetName"
+                        android:textIsSelectable="true"
                         android:textStyle="bold"/>
 
                     <TextView
@@ -58,6 +59,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/row_lbl_petRace"
                         android:text="Race"
+                        android:textIsSelectable="true"
                         android:textStyle="italic"
                         android:layout_marginLeft="45dp"
                         android:layout_marginStart="45dp"
@@ -74,6 +76,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/row_lbl_petColour"
                         android:text="Colour"
+                        android:textIsSelectable="true"
                         android:textStyle="italic"
                         android:layout_marginLeft="60dp"
                         android:layout_marginStart="60dp"
@@ -90,6 +93,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/row_lbl_petSex"
                         android:text="Sex"
+                        android:textIsSelectable="true"
                         android:textStyle="italic"
                         android:layout_marginLeft="45dp"
                         android:layout_marginStart="45dp"
@@ -100,30 +104,39 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/row_lbl_tatoo"
                         android:text="@string/tatoo"
+                        android:layout_marginBottom="20dp"
                         android:layout_below="@+id/row_lbl_sex"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/row_lbl_petTatoo"
                         android:text="Tatoo"
+                        android:textIsSelectable="true"
                         android:textStyle="italic"
                         android:layout_marginLeft="70dp"
                         android:layout_marginStart="70dp"
                         android:layout_alignTop="@+id/row_lbl_tatoo"/>
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/layout_petInfos"
+                    android:layout_toRightOf="@+id/layout_petInfos">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/row_lbl_lostPoint"
                         android:text="@string/lostPoint"
-                        android:textStyle="bold"
-                        android:layout_below="@+id/row_lbl_tatoo"/>
+                        android:textStyle="bold"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/row_lbl_lostAddress"
                         android:text="Address"
+                        android:textIsSelectable="true"
                         android:textStyle="italic"
                         android:layout_below="@+id/row_lbl_lostPoint"/>
                     <TextView
@@ -131,6 +144,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/row_lbl_lostZipCode"
                         android:text="ZipCode"
+                        android:textIsSelectable="true"
                         android:textStyle="italic"
                         android:layout_below="@+id/row_lbl_lostAddress"/>
                     <TextView
@@ -138,6 +152,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/row_lbl_lostCity"
                         android:text="City"
+                        android:textIsSelectable="true"
                         android:textStyle="italic"
                         android:layout_below="@+id/row_lbl_lostZipCode"/>
                 </RelativeLayout>
@@ -145,14 +160,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/layout_ownerInfos"
-                    android:layout_toEndOf="@+id/layout_petInfos"
-                    android:layout_toRightOf="@+id/layout_petInfos">
+                    android:layout_marginBottom="40dp"
+                    android:layout_below="@+id/layout_petInfos">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/row_lbl_userFirstName"
                         android:text="FirstName"
+                        android:textIsSelectable="true"
                         android:textStyle="bold"
                         android:layout_marginEnd="5dp"
                         android:layout_marginRight="5dp"/>
@@ -161,13 +177,15 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/row_lbl_userLastName"
                         android:text="LastName"
+                        android:textIsSelectable="true"
                         android:textStyle="bold"
-                        android:layout_below="@+id/row_lbl_userFirstName"/>
+                        android:layout_toRightOf="@+id/row_lbl_userFirstName"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/row_lbl_userAddress"
                         android:text="Address"
+                        android:textIsSelectable="true"
                         android:textStyle="italic"
                         android:layout_below="@+id/row_lbl_userLastName"/>
                     <TextView
@@ -175,6 +193,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/row_lbl_userZipCode"
                         android:text="ZipCode"
+                        android:textIsSelectable="true"
                         android:textStyle="italic"
                         android:layout_below="@+id/row_lbl_userAddress"/>
                     <TextView
@@ -182,6 +201,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/row_lbl_userCity"
                         android:text="City"
+                        android:textIsSelectable="true"
                         android:textStyle="italic"
                         android:layout_below="@+id/row_lbl_userZipCode"/>
                     <TextView
@@ -189,28 +209,9 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/row_lbl_userPhoneNumber"
                         android:text="Phone"
+                        android:textIsSelectable="true"
                         android:textStyle="italic"
                         android:layout_below="@+id/row_lbl_userCity"/>
-                </RelativeLayout>
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/layout_petDescription"
-                    android:layout_below="@+id/layout_petInfos"
-                    android:layout_marginTop="10dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/row_lbl_description"
-                        android:text="@string/description"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/row_lbl_petDescription"
-                        android:text="Description"
-                        android:textStyle="italic"
-                        android:layout_below="@+id/row_lbl_description"/>
                 </RelativeLayout>
 
                 <Button
@@ -219,7 +220,7 @@
                     android:layout_centerHorizontal="true"
                     android:id="@+id/btn_takePicture"
                     android:text="@string/takePicture"
-                    android:layout_alignParentBottom="true"/>
+                    android:layout_below="@+id/layout_ownerInfos"/>
             </RelativeLayout>
 
         </RelativeLayout>

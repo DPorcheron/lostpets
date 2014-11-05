@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">"LostPets"</string>
+    <string name="app_name">"Animaux Perdus"</string>
     <string name="title_activity_infos">"Infos"</string>
     <string name="title_activity_take_picture">TakePictureActivity</string>
     <string name="title_activity_create_lost_pet">CreateLostPetActivity</string>
@@ -18,12 +18,12 @@
     <string name="colour">"Couleur : "</string>
     <string name="sex">"Sexe : "</string>
     <string name="tatoo">"Tatouage : "</string>
-    <string name="description">"Description : "</string>
     <string name="lostPoint">"Perdu à l'adresse"</string>
     <string name="address">"Adresse : "</string>
     <string name="zipCode">"Code Postal : "</string>
     <string name="city">"Ville : "</string>
     <string name="phoneNumber">"Tél : "</string>
+    <string name="ownerPhoneNumber">"Tél. du propriétaire : "</string>
     <string name="takePicture">"Prendre une photo de l'animal"</string>
     <string name="shareLostPet">"Vous pouvez maintenant :\n- Envoyer cette photo à son propriétaire\n- La partager avec vos contacts"</string>
     <string name="sharePicture">"Partager"</string>
@@ -40,7 +40,7 @@
     <string name="colourLostPet">"Couleur * : "</string>
     <string name="phoneLostPet">"Tél. * : "</string>
     <string name="save">"Sauvegarder"</string>
-    <string name="msg_contactWebApi">"Veuillez patienter, cela peut prendre quelques minutes ..."</string>
+    <string name="msg_contactWebApi">"Chargement de la liste, cela peut prendre quelques minutes ..."</string>
     <string name="msg_saveLostPet">"Sauvegarde terminée\nCette fiche sera supprimée au bout de 30 jours"</string>
     <string name="err_contactWebApi">"Le serveur est inaccessible : Pensez à activer Internet"</string>
     <string name="err_dataWebApi">"Les données récupérées ne sont pas conformes"</string>
