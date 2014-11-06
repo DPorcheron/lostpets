@@ -1,6 +1,7 @@
 package fr.esiea.mobile.lostpets.activity;
 
 import android.app.Activity;
+import android.content.pm.ActivityInfo;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -23,6 +24,7 @@ public class PetActivity extends Activity implements PetFragment.OnFragmentInter
 
         //If it's a smartphone
         if (findViewById(R.id.fgt_container) != null){
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
             PetListFragment firstFrag = new PetListFragment();
             firstFrag.setArguments(getIntent().getExtras());
 
@@ -32,6 +34,9 @@ public class PetActivity extends Activity implements PetFragment.OnFragmentInter
                     .add(R.id.fgt_container, firstFrag)
                     .commit();
         }
+        else {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        }
 
     }
 
@@ -40,6 +45,7 @@ public class PetActivity extends Activity implements PetFragment.OnFragmentInter
     public void onPetSelected(Integer id) {
         //If it's a smartphone
         if (findViewById(R.id.fgt_container) != null){
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
             PetFragment nextFrag = new PetFragment();
             //Pass selected petId argument
             Bundle args = new Bundle();
@@ -55,6 +61,7 @@ public class PetActivity extends Activity implements PetFragment.OnFragmentInter
         }
         else {
             //If it's a tablet
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
             PetFragment petFragment = (PetFragment) getFragmentManager().findFragmentById(R.id.fgt_pet);
             petFragment.refresh(id);
         }

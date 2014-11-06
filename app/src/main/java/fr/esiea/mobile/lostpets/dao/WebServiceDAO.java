@@ -8,13 +8,11 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 
 import org.apache.http.Header;
 import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -22,8 +20,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.List;
 
 import fr.esiea.mobile.lostpets.R;
 import fr.esiea.mobile.lostpets.adapter.PetAdapter;
@@ -86,34 +82,42 @@ public class WebServiceDAO {
             @Override
             public void run() {
                 try {
+                    // Add data
+                    StringBuilder stringBuilder = new StringBuilder();
+                    stringBuilder.append("[{");
+                    stringBuilder.append("\"name\":" + "\"" + pet.getM_petName() + "\"" + ",");
+                    stringBuilder.append("\"race\":" + "\"" + pet.getM_petRace() + "\"" + ",");
+                    stringBuilder.append("\"color\":" + "\"" + pet.getM_petColour() + "\"" + ",");
+                    stringBuilder.append("\"sex\":" + "\"" + pet.getM_petSex() + "\"" + ",");
+                    stringBuilder.append("\"tattoo\":" + "\"" + pet.getM_petTatoo() + "\"" + ",");
+                    stringBuilder.append("\"address\":" + "\"" + pet.getM_petLostAddress() + "\"" + ",");
+                    stringBuilder.append("\"zipcode\":" + "\"" + pet.getM_petLostZipcode() + "\"" + ",");
+                    stringBuilder.append("\"city\":" + "\"" + pet.getM_petLostCity() + "\"" + ",");
+                    stringBuilder.append("\"picture\":" + "\"" + pet.getM_petPicture() + "\"" + ",");
+                    stringBuilder.append("\"ownerFirstName\":" + "\"" + pet.getM_petOwnerFirstName() + "\"" + ",");
+                    stringBuilder.append("\"ownerLastName\":" + "\"" + pet.getM_petOwnerLastName() + "\"" + ",");
+                    stringBuilder.append("\"ownerAddress\":" + "\"" + pet.getM_petOwnerAddress() + "\"" + ",");
+                    stringBuilder.append("\"ownerZipcode\":" + "\"" + pet.getM_petOwnerZipCode() + "\"" + ",");
+                    stringBuilder.append("\"ownerCity\":" + "\"" + pet.getM_petOwnerCity() + "\"" + ",");
+                    stringBuilder.append("\"ownerPhone\":" + "\"" + pet.getM_petOwnerPhone() + "\"");
+                    stringBuilder.append("}]");
+
                     // Create a new HttpClient and Post Header
                     String urlPets = URLEncoder.encode("pets", "UTF-8");
                     HttpClient httpclient = new DefaultHttpClient();
                     HttpPost httppost = new HttpPost(QUERY_URL + urlPets);
 
+                    StringEntity se = new StringEntity(stringBuilder.toString());
+                    //Set some headers to inform server about the type of the content
+                    httppost.setHeader("Accept", "application/json");
+                    httppost.setHeader("Content-type", "application/json");
+
                     try {
-                        // Add data
-                        List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-                        nameValuePairs.add(new BasicNameValuePair("name", pet.getM_petName()));
-                        nameValuePairs.add(new BasicNameValuePair("race", pet.getM_petRace()));
-                        nameValuePairs.add(new BasicNameValuePair("color", pet.getM_petColour()));
-                        nameValuePairs.add(new BasicNameValuePair("sex", pet.getM_petSex()));
-                        nameValuePairs.add(new BasicNameValuePair("tattoo", pet.getM_petTatoo()));
-                        nameValuePairs.add(new BasicNameValuePair("address", pet.getM_petLostAddress()));
-                        nameValuePairs.add(new BasicNameValuePair("zipcode", pet.getM_petLostZipcode()));
-                        nameValuePairs.add(new BasicNameValuePair("city", pet.getM_petLostCity()));
-                        nameValuePairs.add(new BasicNameValuePair("picture", pet.getM_petPicture()));
-                        nameValuePairs.add(new BasicNameValuePair("ownerFirstName", pet.getM_petOwnerFirstName()));
-                        nameValuePairs.add(new BasicNameValuePair("ownerLastName", pet.getM_petOwnerLastName()));
-                        nameValuePairs.add(new BasicNameValuePair("ownerAddress", pet.getM_petOwnerAddress()));
-                        nameValuePairs.add(new BasicNameValuePair("ownerZipcode", pet.getM_petOwnerZipCode()));
-                        nameValuePairs.add(new BasicNameValuePair("ownerCity", pet.getM_petOwnerCity()));
-                        nameValuePairs.add(new BasicNameValuePair("ownerPhone", pet.getM_petOwnerPhone()));
-                        httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+
+                        httppost.setEntity(se);
 
                         // Execute HTTP Post Request
                         HttpResponse response = httpclient.execute(httppost);
-                        System.out.println(inputStreamToString(response.getEntity().getContent()));
 
                     } catch (ClientProtocolException e) {
                         e.printStackTrace();
