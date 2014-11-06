@@ -21,10 +21,10 @@ Enfin, quelques informations utiles sont renseignés dans l’application
 comme « qui contacter en cas de parte/ de couverte d’un animal ? ».
 
 Librairies externes :
-- Android Support : com.android.support :support-v4 :20.0.0
-- AsyncHttpRequest : com.loopj.android :android-async-http :1.4.4
-- Picasso : com.squareup.picasso :picasso :2.3.4
-- Google Maps et Location : com.google.android.gms :play-services :6.1.11
+- Android Support : com.android.support :support-v4 :20.0.0 (Licensed under the Apache License, Version 2.0)
+- AsyncHttpRequest : com.loopj.android :android-async-http :1.4.4 (Licensed under the Apache License, Version 2.0)
+- Picasso : com.squareup.picasso :picasso :2.3.4 (Licensed under the Apache License, Version 2.0)
+- Google Maps et Location : com.google.android.gms :play-services :6.1.11 (Licensed under Apache License, Version 2.0)
 
 Architecture du projet :
 
