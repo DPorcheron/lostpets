@@ -3,6 +3,7 @@ package fr.esiea.mobile.lostpets.model;
 /**
  * Created by david on 03/11/2014.
  */
+//This class is the User model
 public class User {
 
     private Integer m_userId;

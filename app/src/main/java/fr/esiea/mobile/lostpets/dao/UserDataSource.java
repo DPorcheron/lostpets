@@ -13,6 +13,7 @@ import fr.esiea.mobile.lostpets.sql.MySQLiteHelper;
 /**
  * Created by david on 03/11/2014.
  */
+//This class is the DAO for the SQLite database
 public class UserDataSource {
     // Database fields
     private SQLiteDatabase m_database;

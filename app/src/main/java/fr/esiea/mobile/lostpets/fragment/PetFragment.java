@@ -156,7 +156,7 @@ public class PetFragment extends Fragment implements View.OnClickListener {
         if (m_pet != null) {
             m_layoutMain.setVisibility(View.VISIBLE);
 
-            if (m_pet.getM_petPicture() != null){
+            if (m_pet.getM_petPicture() != null && !m_pet.getM_petPicture().equals("")){
                 Picasso.with(this.getActivity())
                         .load(m_pet.getM_petPicture())
                         .placeholder(R.drawable.no_available_image)
@@ -221,8 +221,9 @@ public class PetFragment extends Fragment implements View.OnClickListener {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
             try {
+                //Add picture in the gallery
                 PictureFileManager.galleryAddPic(getActivity());
-
+                //Show the nextIntent (TakePictureActivity)
                 Intent nextActivity = new Intent(this.getActivity(), TakePictureActivity.class);
                 if (m_pet != null) {
                     nextActivity.putExtra("phone", m_pet.getM_petOwnerPhone());

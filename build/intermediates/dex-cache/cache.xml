@@ -2,11 +2,11 @@
 <pre-dex-items>
 
     <item
-        dex="/Users/david/AndroidStudioProjects/LostPets/app/build/intermediates/pre-dexed/debug/support-annotations-20.0.0-bca9cd8c8082330ef7549e0398af852faae531fd.jar"
-        jar="/Applications/Android Studio.app/sdk/extras/android/m2repository/com/android/support/support-annotations/20.0.0/support-annotations-20.0.0.jar"
+        dex="/Users/david/AndroidStudioProjects/LostPets/app/build/intermediates/pre-dexed/debug/classes-98ff60eb7e762329924ae87f8018f03abf1761e7.jar"
+        jar="/Users/david/AndroidStudioProjects/LostPets/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.1.11/classes.jar"
         jumboMode="false"
         revision="20.0.0"
-        sha1="9d9013e9ff35fc3756411e62873c363c70c638fa"/>
+        sha1="0f700f6802ba1a1f1fa7ac26d5db0666a89d75a6"/>
     <item
         dex="/Users/david/AndroidStudioProjects/LostPets/app/build/intermediates/pre-dexed/debug/android-async-http-1.4.4-21240cb9c16238390af3f991b06ecbd34cd1f9cd.jar"
         jar="/Users/david/.gradle/caches/modules-2/files-2.1/com.loopj.android/android-async-http/1.4.4/3bae85a076241828810bf8fbcc12e5891d5fc34c/android-async-http-1.4.4.jar"
@@ -20,16 +20,28 @@
         revision="20.0.0"
         sha1="3b646ddbdac8a33fc45b64564011da81d23e4635"/>
     <item
-        dex="/Users/david/AndroidStudioProjects/LostPets/app/build/intermediates/pre-dexed/debug/internal_impl-20.0.0-7b7196c01d6598bd74496c96799782afc5f19267.jar"
-        jar="/Users/david/AndroidStudioProjects/LostPets/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/libs/internal_impl-20.0.0.jar"
+        dex="/Users/david/AndroidStudioProjects/LostPets/app/build/intermediates/pre-dexed/debug/support-annotations-20.0.0-bca9cd8c8082330ef7549e0398af852faae531fd.jar"
+        jar="/Applications/Android Studio.app/sdk/extras/android/m2repository/com/android/support/support-annotations/20.0.0/support-annotations-20.0.0.jar"
         jumboMode="false"
         revision="20.0.0"
-        sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d"/>
+        sha1="9d9013e9ff35fc3756411e62873c363c70c638fa"/>
+    <item
+        dex="/Users/david/AndroidStudioProjects/LostPets/app/build/intermediates/pre-dexed/debug/classes-40252ca1082ef33c4bf8a50e34314759265268e6.jar"
+        jar="/Users/david/AndroidStudioProjects/LostPets/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/20.0.0/classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="f21927d22fe31889ecce94dd697a2e75b137e0ef"/>
     <item
         dex="/Users/david/AndroidStudioProjects/LostPets/app/build/intermediates/pre-dexed/debug/classes-5a4c1017b4976f34229a453be45e580ff096b60e.jar"
         jar="/Users/david/AndroidStudioProjects/LostPets/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/classes.jar"
         jumboMode="false"
         revision="20.0.0"
         sha1="8694693636ab36910c8100ce527c258ff3ebece0"/>
+    <item
+        dex="/Users/david/AndroidStudioProjects/LostPets/app/build/intermediates/pre-dexed/debug/internal_impl-20.0.0-7b7196c01d6598bd74496c96799782afc5f19267.jar"
+        jar="/Users/david/AndroidStudioProjects/LostPets/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/libs/internal_impl-20.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d"/>
 
 </pre-dex-items>

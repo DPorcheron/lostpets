@@ -5,6 +5,7 @@ import org.json.JSONObject;
 /**
  * Created by david on 26/10/2014.
  */
+//This class is the Pet model
 public class Pet {
 
     private Integer m_petId;

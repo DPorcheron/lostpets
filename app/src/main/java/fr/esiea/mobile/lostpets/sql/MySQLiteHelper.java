@@ -8,6 +8,7 @@ import android.util.Log;
 /**
  * Created by david on 03/11/2014.
  */
+//This class manage SQLite requests
 public class MySQLiteHelper extends SQLiteOpenHelper {
 
     public static final String TABLE_USER = "user";

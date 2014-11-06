@@ -6,11 +6,13 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Observable;
 
 /**
  * Created by david on 26/10/2014.
  */
-public class Pets {
+//This class is the Pets model (HashMap<String,Pet>)
+public class Pets extends Observable {
 
     private static Pets instance;
     public static Pets getInstance() {
@@ -49,5 +51,8 @@ public class Pets {
             JSONObject json = array.optJSONObject(i);
             addPet(new Pet(json));
         }
+        //Notify observers that the lost pet list has changed
+        setChanged();
+        notifyObservers();
     }
 }

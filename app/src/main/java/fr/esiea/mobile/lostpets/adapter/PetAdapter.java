@@ -17,43 +17,45 @@ import fr.esiea.mobile.lostpets.model.Pets;
 /**
  * Created by david on 26/10/2014.
  */
+//This class is the PetAdapter which manage pet list
 public class PetAdapter extends BaseAdapter {
 
-    Context context;
+    Context m_context;
 
     private static LayoutInflater inflater;
 
     public PetAdapter(Context context) {
-        this.context = context;
+        this.m_context = context;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     @Override
+    //Return the number of elements in Pets list
     public int getCount() {
         return Pets.getInstance().getPets().size();
     }
 
     @Override
+    //Return the i-ème Pet in the Pets list
     public Object getItem(int i) {
         return Pets.getInstance().getPets().get(i);
     }
 
     @Override
+    //Return the Pet with id i in the Pets list
     public long getItemId(int i) {
         return new Long(Pets.getInstance().getPets().get(i).getM_petId());
     }
 
     @Override
+    //This method manage the holder view to load data faster
     public View getView(int i, View view, ViewGroup viewGroup) {
-        // on garde une valeur de la vue
         View v = view;
-        // on garde une valeur du holder
         RowView holder;
-        // on regarde si on peut recycler une vue
+
         if (v == null) {
-            //on récupère le désérialiseur de layout
             v = inflater.inflate(R.layout.row_pet, null);
-            //initialisation du ViewHolder
+            //initialization of the ViewHolder
             holder = new RowView();
             holder.petPictureView = (ImageView) v.findViewById(R.id.row_img_pet);
             holder.petNameView = (TextView) v.findViewById(R.id.row_lbl_petName);
@@ -76,7 +78,7 @@ public class PetAdapter extends BaseAdapter {
                 holder.userCity = (TextView) v.findViewById(R.id.row_lbl_userCity);
                 holder.userPhone = (TextView) v.findViewById(R.id.row_lbl_userPhoneNumber);
             }
-            //on sauvegarde notre holder
+            //save holder
             v.setTag(holder);
         }
         else {
@@ -84,8 +86,6 @@ public class PetAdapter extends BaseAdapter {
         }
         Pet pet = (Pet) getItem(i);
 
-        // On asign directement les valeurs à notre holder
-        holder.petPictureView.setImageResource(R.drawable.no_available_image);
         holder.petNameView.setText(pet.getM_petName());
         holder.petRaceView.setText(pet.getM_petRace());
         holder.petColourView.setText(pet.getM_petColour());
@@ -107,15 +107,20 @@ public class PetAdapter extends BaseAdapter {
             holder.userPhone.setText(pet.getM_petOwnerPhone());
         }
 
-        if (pet.getM_petPicture() != null){
-            Picasso.with(context)
+        //Loads picture in the holder with Picasso librairy
+        if (pet.getM_petPicture() != null && !pet.getM_petPicture().equals("")){
+            Picasso.with(m_context)
                     .load(pet.getM_petPicture())
                     .placeholder(R.drawable.no_available_image)
                     .error(R.drawable.no_available_image)
                     .into(holder.petPictureView);
         }
         else {
-            holder.petPictureView.setImageResource(R.drawable.no_available_image);
+            Picasso.with(m_context)
+                    .load(R.drawable.no_available_image)
+                    .placeholder(R.drawable.no_available_image)
+                    .error(R.drawable.no_available_image)
+                    .into(holder.petPictureView);
         }
 
         return v;

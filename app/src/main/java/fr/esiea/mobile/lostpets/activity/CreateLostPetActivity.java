@@ -11,13 +11,14 @@ import android.widget.Toast;
 
 import fr.esiea.mobile.lostpets.R;
 import fr.esiea.mobile.lostpets.dao.UserDataSource;
+import fr.esiea.mobile.lostpets.dao.WebServiceDAO;
 import fr.esiea.mobile.lostpets.model.Pet;
 import fr.esiea.mobile.lostpets.model.User;
 
+//This class is the CreateLostPetActivity linked to activity_create_lost_pet.xml
 public class CreateLostPetActivity extends Activity implements View.OnClickListener {
 
     private static String zipCodeRegex = "^\\d{5}(?:[-\\s]\\d{4})?$";
-    private static String numberRegex = "[0-9]+";
     private static String textRegex = "[a-zA-Z]+";
     private static String sexRegex = "^[MF]{1}$";
 
@@ -40,6 +41,7 @@ public class CreateLostPetActivity extends Activity implements View.OnClickListe
 
     private Button m_btnSavelostPet;
     private UserDataSource m_dataSource;
+    private WebServiceDAO m_webServiceDAO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,9 +69,10 @@ public class CreateLostPetActivity extends Activity implements View.OnClickListe
 
         m_btnSavelostPet.setOnClickListener(this);
 
+        //Initialize the SQLite database
         if (initSQL()) {
             User values = m_dataSource.getUserById(0);
-
+            //Show user informations if this user exists
             if (values != null) {
                 m_editUserLastName.setText(values.getM_userLastName());
                 m_editUserFirstName.setText(values.getM_userFirstName());
@@ -79,6 +82,8 @@ public class CreateLostPetActivity extends Activity implements View.OnClickListe
                 m_editUserPhone.setText(values.getM_userPhone());
             }
         }
+        //Initialize the webserviceDAO
+        m_webServiceDAO = new WebServiceDAO(this);
     }
 
     @Override
@@ -87,7 +92,8 @@ public class CreateLostPetActivity extends Activity implements View.OnClickListe
             Intent nextActivity;
             //Reinitialize colour of edit texts
             setStandardTextColour();
-            Pet pet = new Pet(0, m_editPetName.getText().toString(), m_editPetRace.getText().toString(),
+            //Create a temporary pet
+            final Pet pet = new Pet(0, m_editPetName.getText().toString(), m_editPetRace.getText().toString(),
                     m_editPetColour.getText().toString(), m_editPetSex.getText().toString(),
                     m_editPetTatoo.getText().toString(),
                     m_editPetPicture.getText().toString(), m_editPetAddress.getText().toString(),
@@ -96,11 +102,12 @@ public class CreateLostPetActivity extends Activity implements View.OnClickListe
                     m_editUserAddress.getText().toString(), m_editUserZipCode.getText().toString(),
                     m_editUserCity.getText().toString(), m_editUserPhone.getText().toString());
 
+            //Validate pet informations
             if (validate(pet)) {
                 //Check if this user already exist
                 User values = m_dataSource.getUserById(0);
-                long result = 0;
-
+                long result;
+                //Update informations if it existed in database
                 if (values != null) {
                     //Update this user in bdd
                     values.setM_userLastName(m_editUserLastName.getText().toString());
@@ -121,15 +128,21 @@ public class CreateLostPetActivity extends Activity implements View.OnClickListe
                             m_editUserCity.getText().toString(),
                             m_editUserPhone.getText().toString());
                 }
+
                 if (result != -1) {
-                    Toast.makeText(this, R.string.msg_saveLostPet, Toast.LENGTH_LONG).show();
-                    nextActivity = new Intent(this, MainActivity.class);
-                    startActivity(nextActivity);
+                    //Post information on webservice
+                    try {
+                        m_webServiceDAO.postInfos(pet);
+
+                        //If all sounds good then print message and go to main activity
+                        Toast.makeText(this, R.string.msg_saveLostPet, Toast.LENGTH_LONG).show();
+                        nextActivity = new Intent(this, MainActivity.class);
+                        startActivity(nextActivity);
+                    }
+                    catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
-                //Post information on webservice
-
-                //If all sounds good then print message and go to main activity
-
             }
             else {
                 Toast.makeText(this, R.string.err_lostPetWrongField, Toast.LENGTH_LONG).show();
@@ -137,6 +150,7 @@ public class CreateLostPetActivity extends Activity implements View.OnClickListe
         }
     }
 
+    //Initialize the database
     public boolean initSQL() {
         boolean isGood = true;
         m_dataSource = new UserDataSource(this);
@@ -150,6 +164,7 @@ public class CreateLostPetActivity extends Activity implements View.OnClickListe
         return isGood;
     }
 
+    //Validate pet informations
     private boolean validate(Pet pet) {
         Boolean noError = true;
         if (!pet.getM_petOwnerLastName().matches(textRegex) || pet.getM_petOwnerLastName().equals("")) {
@@ -207,6 +222,7 @@ public class CreateLostPetActivity extends Activity implements View.OnClickListe
         return noError;
     }
 
+    //Reset text colour
     private void setStandardTextColour() {
         m_editUserFirstName.setTextColor(Color.BLACK);
         m_editUserLastName.setTextColor(Color.BLACK);

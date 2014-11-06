@@ -17,6 +17,7 @@ import java.io.File;
 import fr.esiea.mobile.lostpets.R;
 import fr.esiea.mobile.lostpets.util.PictureFileManager;
 
+//This class is the TakePictureActivity linked to activity_take_picture.xml
 public class TakePictureActivity extends Activity implements View.OnClickListener {
 
     TextView m_txtOwnerPhone;
@@ -35,13 +36,16 @@ public class TakePictureActivity extends Activity implements View.OnClickListene
 
         m_btnSharePicture.setOnClickListener(this);
 
+        //Set picture in the imageView
         setImgView();
 
+        //Set the owner phone field if the argument is not null
         if (getIntent().getExtras().get("phone") != null) {
             m_txtOwnerPhone.setText((String) getIntent().getExtras().get("phone"));
         }
     }
 
+    //Set the captured photo in the imageView
     private void setImgView() {
         File file = new File(PictureFileManager.getM_currentPhotoPath());
         Uri uri = Uri.fromFile(file);
@@ -61,6 +65,7 @@ public class TakePictureActivity extends Activity implements View.OnClickListene
     @Override
     public void onClick(View view) {
         if (R.id.btn_sharePicture == view.getId()) {
+            //Share picture with all applications which can handle pictures
             final Intent shareIntent = new Intent(Intent.ACTION_SEND);
             shareIntent.setType("image/jpeg");
             shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);

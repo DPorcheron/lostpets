@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import fr.esiea.mobile.lostpets.R;
 
+//This class is the InfosActivity linked to activity_infos.xml
 public class InfosActivity extends Activity {
 
     @Override

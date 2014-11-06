@@ -12,6 +12,7 @@ import java.text.Normalizer;
 /**
  * Created by david on 01/11/2014.
  */
+//This class manages picture file in device
 public class PictureFileManager {
 
     private static String m_currentPhotoPath;
@@ -19,6 +20,7 @@ public class PictureFileManager {
     public PictureFileManager() {
     }
 
+    //Create file
     public static String createFileName (String param) {
         String petName = Normalizer.normalize(param, Normalizer.Form.NFD);
         petName = petName.replaceAll("[^\\p{ASCII}]", "");
@@ -26,15 +28,16 @@ public class PictureFileManager {
         return petName;
     }
 
+    //Create picture file
     public static File createImageFile(String fileName) throws IOException {
         // Create an image file name
         File picture = new File (Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), fileName);
 
-        // Save a file: path for use with ACTION_VIEW intents
         m_currentPhotoPath = picture.getAbsolutePath();
         return picture;
     }
 
+    //Add picture in gallery
     public static void galleryAddPic(Context context) {
         Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
         File f = new File(m_currentPhotoPath);

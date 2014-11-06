@@ -3,12 +3,12 @@ package fr.esiea.mobile.lostpets.activity;
 import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.Window;
 
 import fr.esiea.mobile.lostpets.R;
 import fr.esiea.mobile.lostpets.fragment.PetFragment;
 import fr.esiea.mobile.lostpets.fragment.PetListFragment;
 
+//This class is the PetActivity linked to activity_pet.xml
 public class PetActivity extends Activity implements PetFragment.OnFragmentInteractionListener, PetListFragment.OnFragmentInteractionListener {
 
     @Override
@@ -19,23 +19,14 @@ public class PetActivity extends Activity implements PetFragment.OnFragmentInter
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().requestFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         setContentView(R.layout.activity_pet);
 
-        // on regarde la configuration
-        // si mode smartphone
+        //If it's a smartphone
         if (findViewById(R.id.fgt_container) != null){
-            // si on a des info d'etat ne rien faire
-            if (savedInstanceState != null){
-                return;
-            }
-
-            // on peut creer le fragment
             PetListFragment firstFrag = new PetListFragment();
-            // on lui passe les arguments de l'intent qui a déclencher le oncreate
             firstFrag.setArguments(getIntent().getExtras());
 
-            //Ajout du fragment au layout
+            //Add this fragment on the layout
             getFragmentManager()
                     .beginTransaction()
                     .add(R.id.fgt_container, firstFrag)
@@ -47,16 +38,15 @@ public class PetActivity extends Activity implements PetFragment.OnFragmentInter
 
     @Override
     public void onPetSelected(Integer id) {
-        // si mode smartphone
+        //If it's a smartphone
         if (findViewById(R.id.fgt_container) != null){
-            // on peut creer le fragment
             PetFragment nextFrag = new PetFragment();
-            // on lui passe les arguments de l'intent
+            //Pass selected petId argument
             Bundle args = new Bundle();
             args.putInt(PetFragment.ARG_PET_ID, id);
             nextFrag.setArguments(args);
 
-            //Ajout du fragment au layout
+            //Add this fragment on the layout
             getFragmentManager()
                     .beginTransaction()
                     .replace(R.id.fgt_container,nextFrag)
@@ -64,7 +54,7 @@ public class PetActivity extends Activity implements PetFragment.OnFragmentInter
                     .commit();
         }
         else {
-            // sinon on est en mode deux panneaux
+            //If it's a tablet
             PetFragment petFragment = (PetFragment) getFragmentManager().findFragmentById(R.id.fgt_pet);
             petFragment.refresh(id);
         }

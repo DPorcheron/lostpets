@@ -26,18 +26,17 @@ import fr.esiea.mobile.lostpets.model.Pets;
  *
  */
 public class PetListFragment extends Fragment {
-    private OnFragmentInteractionListener mListener;
-    private ListView listView;
-    private WebServiceDAO webServiceDAO;
+    private OnFragmentInteractionListener m_listener;
+    private ListView m_listView;
+    private WebServiceDAO m_webServiceDAO;
 
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param login Le compte a utiliser.
      * @return A new instance of fragment PetListFragment.
      */
-    public static PetListFragment newInstance(String login) {
+    public static PetListFragment newInstance() {
         PetListFragment fragment = new PetListFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
@@ -56,11 +55,11 @@ public class PetListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        //Initialize webServiceDAO
-        webServiceDAO = new WebServiceDAO(getActivity());
+        //Initialize m_webServiceDAO
+        m_webServiceDAO = new WebServiceDAO(getActivity());
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fgt_pet_list, container, false);
-        listView = (ListView) rootView.findViewById(R.id.lst_lostPets);
+        m_listView = (ListView) rootView.findViewById(R.id.lst_lostPets);
 
         return rootView;
     }
@@ -68,43 +67,36 @@ public class PetListFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        // Start the spinner at the beginning of the process
-        getActivity().setProgressBarIndeterminate(true);
         Toast.makeText(this.getActivity(), R.string.msg_contactWebApi, Toast.LENGTH_LONG).show();
 
         PetAdapter adapter = null;
         try {
-           adapter = webServiceDAO.getInfos();
+           adapter = m_webServiceDAO.getInfos();
         }
         catch (Exception e) {
             Toast.makeText(this.getActivity(), R.string.err_contactWebApi, Toast.LENGTH_LONG).show();
         }
 
         if (adapter != null) {
-            // On associe l'adapter a notre ListView
-            listView.setAdapter(adapter);
-            // action de selection d'un objet dans la liste
-            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            m_listView.setAdapter(adapter);
+            m_listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                     Pet selected = Pets.getInstance().getPets().get(i);
-                    mListener.onPetSelected(selected.getM_petId());
+                    m_listener.onPetSelected(selected.getM_petId());
                 }
             });
         }
         else {
             Toast.makeText(this.getActivity(), R.string.err_contactWebApi, Toast.LENGTH_LONG).show();
         }
-
-        // Stop the spinner at the end of the process
-        getActivity().setProgressBarIndeterminate(false);
     }
 
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try {
-            mListener = (OnFragmentInteractionListener) activity;
+            m_listener = (OnFragmentInteractionListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
                     + " must implement OnFragmentInteractionListener");
@@ -128,7 +120,7 @@ public class PetListFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
+        m_listener = null;
     }
 
 }
